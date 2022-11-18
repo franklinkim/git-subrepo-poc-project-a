@@ -1,0 +1,26 @@
+name: Git subrepo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  main:
+    name: Push subrepos
+    runs-on: ubuntu-latest
+    steps:
+      - name: install git-subrepo
+        run: git clone --depth=1 --branch=0.4.5 https://github.com/ingydotnet/git-subrepo.git /tmp/git-subrepo
+      - id: app-token-provider
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.ACCESS_TOKEN_APP_ID }}
+          private_key: ${{ secrets.ACCESS_TOKEN_APP_PRIVATE_KEY }}
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ steps.app-token-provider.outputs.token }}
+          fetch-depth: 0
+      - name: Git subrepo push
+        run: |
+          source /tmp/git-subrepo/.rc
+          git subrepo push --all
