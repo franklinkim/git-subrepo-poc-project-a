@@ -4,7 +4,7 @@
 ; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
 ;
 [subrepo]
-	remote = git@github.com:franklinkim/git-subrepo-poc-common.git
+	remote = https://github.com/franklinkim/git-subrepo-poc-common.git
 	branch = fork/project-a
 	commit = e05f88db2f79a0208429a718356ffdd26eaa4515
 	method = merge
