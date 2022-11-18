@@ -6,6 +6,7 @@
 [subrepo]
 	remote = git@github.com:franklinkim/git-subrepo-poc-common.git
 	branch = fork/project-a
-	commit = 
+	commit = e05f88db2f79a0208429a718356ffdd26eaa4515
 	method = merge
 	cmdver = 0.4.5
+	parent = 271a5a193c8569748923202060a811353724a10c
