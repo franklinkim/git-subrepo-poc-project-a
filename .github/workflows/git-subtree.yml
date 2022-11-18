@@ -20,6 +20,10 @@ jobs:
         with:
           token: ${{ steps.app-token-provider.outputs.token }}
           fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config --global user.name ${{ github.actor }}
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
       - name: Git subrepo push
         run: |
           source /tmp/git-subrepo/.rc
